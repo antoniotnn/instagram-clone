@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
+import { Progresso } from './progresso.service';
 
 import { ROUTES } from './app.routes';
 
@@ -36,7 +37,7 @@ import { Bd } from './bd.service';
     ReactiveFormsModule,
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [Autenticacao, AutenticacaoGuard, Bd],
+  providers: [Autenticacao, AutenticacaoGuard, Bd, Progresso ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
