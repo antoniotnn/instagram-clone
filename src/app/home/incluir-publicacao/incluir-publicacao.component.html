@@ -9,7 +9,13 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body"> <!-- input file não é coberto ainda por Reactive Forms ou seja mesmo usando o formControlName o target do campo fica inacessível, então usamos o event bind (change) mesclando com Reactive Forms-->
+                <input
+                    type="file"
+                    class="form-control"
+                    accept="image/*"
+                    (change)="preparaImagemUpload($event)"
+                />
                 <input
                     type="text"
                     placeholder="Titulo da publicação"
