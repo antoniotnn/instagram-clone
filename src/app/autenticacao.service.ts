@@ -2,7 +2,7 @@ import { Injectable, Output } from "@angular/core";
 import { Router } from "@angular/router";
 import { Usuario } from "./acesso/usuario.model";
 import firebase from "firebase";
-import { EventEmitter } from "@angular/core";
+
 
 @Injectable()
 export class Autenticacao {
