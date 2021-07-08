@@ -61,7 +61,7 @@ export class Autenticacao {
     }
 
     public autenticado(): boolean {
-        console.log('Token do método autenticado: ', this.token_id);
+        //console.log('Token do método autenticado: ', this.token_id);
         
         if (this.token_id === undefined && localStorage.getItem('idToken') != null) {
             this.token_id = localStorage.getItem('idToken');
