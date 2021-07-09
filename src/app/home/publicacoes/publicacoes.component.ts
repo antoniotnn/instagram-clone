@@ -20,12 +20,12 @@ export class PublicacoesComponent implements OnInit {
       this.email = user.email;
 
       //console.log(this.email);
-      this.atualizarTimeline();
+      this.atualizarTimeLine();
     })
   }
 
 
-  public atualizarTimeline(): void {
+  public atualizarTimeLine(): void {
     this.bd.consultaPublicacoes(this.email)
       .then((publicacoes: any) => {
         //console.log(publicacoes);

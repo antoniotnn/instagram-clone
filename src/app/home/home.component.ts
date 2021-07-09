@@ -21,4 +21,8 @@ export class HomeComponent implements OnInit {
     this.autenticacao.sair(); 
   }
 
+  public atualizarTimeLine(): void {
+    console.log('Chegamos até aqui');
+  }
+
 }
