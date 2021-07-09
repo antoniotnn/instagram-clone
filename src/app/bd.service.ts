@@ -51,18 +51,28 @@ export class Bd {
             .orderByKey()
             .once('value')
             .then((snapshot: any) =>{
-                console.log(snapshot.val());
+                //console.log(snapshot.val());
 
                 let publicacoes: any[] = [];
 
                 snapshot.forEach((childSnapshot: any) => {
-                    
                     let publicacao = childSnapshot.val();
-                    //console.log(publicacao);
+                    publicacao.key = childSnapshot.key;
+
+                    publicacoes.push(publicacao);
+                }) 
+                //console.log(publicacoes);
+                //resolve(publicacoes);
+                return publicacoes.reverse();
+            })
+            .then((publicacoes: any) => {
+                //console.log(publicacoes);
+
+                publicacoes.forEach((publicacao) =>{
 
                     //consultar a url da imagem (storage)
                     firebase.storage().ref()
-                        .child(`imagens/${childSnapshot.key}`)
+                        .child(`imagens/${publicacao.key}`)
                         .getDownloadURL()
                         .then((url: string) => {
                             //console.log(url);
@@ -76,17 +86,14 @@ export class Bd {
                                     //console.log(snapshot.val().nome_usuario);
 
                                     publicacao.nome_usuario = snapshot.val().nome_usuario;
-
-                                    publicacoes.push(publicacao);
                                 })
-
-                            
+                  
                         })
                 })
                 resolve(publicacoes);
+                
             })
         })       
 
-        
     }
 }
