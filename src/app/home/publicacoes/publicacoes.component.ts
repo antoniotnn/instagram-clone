@@ -28,7 +28,9 @@ export class PublicacoesComponent implements OnInit {
   public atualizarTimeline(): void {
     this.bd.consultaPublicacoes(this.email)
       .then((publicacoes: any) => {
+        //console.log(publicacoes);
         this.publicacoes = publicacoes;
+        //console.log(this.publicacoes);
       })
   }
 
